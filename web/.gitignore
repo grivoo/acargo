@@ -1,0 +1,43 @@
+# https://help.github.com/ignore-files/
+
+# output compilado
+/dist
+/tmp
+/out-tsc
+
+# dependências
+/node_modules
+
+# ides e editores
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# ide - vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+yarn-error.log
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# arquivos de sistema
+.DS_Store
+Thumbs.db
