@@ -1,0 +1,74 @@
+<div class="ops-wrapper">
+    <div>
+        <mat-form-field>
+            <mat-select
+                placeholder="layout"
+                [(ngModel)]="selectedLayout"
+                name="layout"
+                [formControl]="layoutInputCtrl"
+            >
+                <mat-option
+                    *ngFor="let layout of layouts; trackBy: layout?.name"
+                    [value]="layout"
+                >
+                    {{ layout.name }}
+                </mat-option>
+
+                <mat-option
+                    value="null"
+                >
+                    &lt;new&gt;
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <input
+                matInput
+                placeholder="system"
+                name="system"
+                [(ngModel)]="newSystem"
+                (keyup.enter)="addNode()"
+            >
+        </mat-form-field>
+
+        <button
+            mat-button
+            [disabled]="newSystem.trim().length === 0"
+            (click)="addNode()"
+        >
+            add
+        </button>
+        
+        <button
+            mat-button
+            [disabled]="boxes.size >= 10"
+            (click)="addBox()"
+        >
+            add box
+        </button>
+    </div>
+
+    <div>
+        <button
+            mat-raised-button (click)="save()"
+        >
+            save
+        </button>
+
+        <button
+            mat-raised-button (click)="delete()"
+        >
+            delete
+        </button>
+    </div>
+</div>
+
+<ow-layout-editor
+    #editor
+    [data]="currentLayout"
+    (nodeRemoved)="removeNode($event)"
+    (boxRemoved)="removeBox($event)"
+></ow-layout-editor>

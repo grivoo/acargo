@@ -1,0 +1,24 @@
+<mat-form-field>
+    <input
+        matInput
+        placeholder="layout name"
+        name="layoutName"
+        [(ngModel)]="layoutName"
+    >
+</mat-form-field>
+
+<div>
+    <button
+        mat-button
+        (click)="cancel()"
+    >
+        cancel
+    </button>
+
+    <button
+        mat-button
+        (click)="confirm()"
+    >
+        confirm
+    </button>
+</div>
